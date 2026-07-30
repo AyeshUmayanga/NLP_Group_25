@@ -9,9 +9,9 @@ This project focuses on detecting fake news articles using Natural Language Proc
 
 | Member | Task |
 |---------|------|
-| Member 1 | Data Loading, Exploratory Data Analysis (EDA), Text Preprocessing, Logistic Regression | Bert
-| Member 2 | Support Vector Machine (SVM) | LSTM
-| Member 3 | Random Forest | GRU
+| Member 1 |  Logistic Regression and Bert| 
+| Member 2 | Support Vector Machine (SVM) and LSTM| 
+| Member 3 | Random Forest and GRU | 
 
 ## Dataset
 
