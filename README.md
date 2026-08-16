@@ -1,109 +1,217 @@
-# Fake News Detection - Machine Learning & Deep Learning
+# NLP Group 25 – Fake News Detection
 
-This folder contains the implementation of **Random Forest (Machine Learning)** and **Gated Recurrent Unit (GRU) (Deep Learning)** models for detecting fake news. This work is part of the NLP project for student/member ID: **cit-24-01-0534**.
+## Project Overview
 
-Both models have been evaluated on a large news dataset, achieving state-of-the-art performance in classifying news articles as either **True** or **Fake**.
+This project is an NLP-based Fake News Detection system developed for the **CCS3356 – Natural Language Processing** module at Sri Lanka Technology Campus.
 
----
+The system applies Natural Language Processing, Machine Learning, and Deep Learning techniques to classify news articles as **Fake** or **True**.
 
-## 📂 Project Structure
+## Problem Statement
 
-```directory
-cit-24-01-0534/
+Fake news can spread rapidly through online platforms and mislead the public. This project aims to develop an NLP-based system that analyzes news content and predicts whether the given news is Fake or True.
+
+## Project Objectives
+
+- Collect and prepare a real-world news dataset
+- Perform text preprocessing and exploratory data analysis
+- Apply suitable NLP feature representation techniques
+- Develop Machine Learning and Deep Learning models
+- Evaluate and compare the developed models
+- Develop a functional Fake News Detection application
+- Identify ethical issues, dataset bias, and responsible AI concerns
+
+## Dataset
+
+The project uses a real-world Fake News dataset containing news articles categorized as Fake or True.
+
+The original dataset contains the following features:
+
+- Title
+- Text
+- Subject
+- Date
+
+After data cleaning and preprocessing, the final dataset contains **39,105 records**.
+
+The target labels are:
+
+- `0` – Fake News
+- `1` – True News
+
+## NLP Pipeline
+
+The project follows a complete NLP pipeline consisting of:
+
+1. Data Collection
+2. Data Preprocessing
+3. Exploratory Data Analysis
+4. Feature Engineering and Text Representation
+5. Model Development
+6. Model Training
+7. Model Evaluation
+8. Model Comparison
+9. Final Application Development
+
+## Group Members and Model Allocation
+
+| Student ID | Machine Learning Model | Deep Learning Model |
+|---|---|---|
+| cit-24-01-0535 | Logistic Regression | BERT |
+| cit-24-01-0458 | SVM | LSTM |
+| cit-24-01-0534 | Random Forest | GRU |
+
+Each member independently developed one Machine Learning model and one Deep Learning model using the same dataset and problem domain.
+
+### Member 1 Contribution – cit-24-01-0535
+
+Member 1 independently developed and evaluated the following models:
+
+**Machine Learning Model – Logistic Regression**
+
+- TF-IDF was used for text feature extraction
+- Stratified train-test splitting was applied
+- The model was trained using the cleaned news text
+- Performance was evaluated using standard classification metrics
+
+**Deep Learning Model – BERT**
+
+- Pre-trained `bert-base-uncased` was used
+- BERT tokenization was applied to the news text
+- The model was fine-tuned for binary classification
+- Performance was evaluated using standard classification metrics
+
+## Model Performance
+
+| Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
+|---|---:|---:|---:|---:|---:|
+| Logistic Regression | 98.76% | 98.50% | 99.22% | 98.86% | N/A |
+| SVM | 99.37% | 99.25% | 99.60% | 99.42% | 99.93% |
+| Random Forest | 99.65% | 99.55% | 99.81% | 99.68% | 99.95% |
+| BERT | 99.31% | 98.76% | 99.98% | 99.37% | 99.98% |
+| LSTM | 98.71% | 98.48% | 99.15% | 98.81% | 99.79% |
+| GRU | 99.72% | 99.60% | 99.88% | 99.74% | 99.96% |
+
+## Evaluation Metrics
+
+The developed models are evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Confusion Matrix
+- ROC-AUC
+
+The performance of all six models is compared to identify the most suitable model for the final application.
+
+## Final Application
+
+After evaluating all six models, the most suitable model will be selected for integration into the final Fake News Detection application.
+
+The application will provide a user-friendly interface where users can enter news content and receive a prediction indicating whether the content is likely to be Fake or True.
+
+## Ethics and Responsible AI
+
+The project considers several ethical and responsible AI aspects, including:
+
+- Dataset bias
+- Fairness
+- False positive and false negative predictions
+- Potential harmful outputs
+- Privacy considerations
+- Limitations of automated news classification
+
+The system is intended to support users in analyzing news content and should not be considered an absolute authority for determining factual truth.
+
+## Project Structure
+
+```
+NLP_Group_25/
 │
 ├── data/
-│   └── clean_news_dataset.csv                      # Preprocessed news dataset (tracked via Git LFS)
-│
+├── notebooks/
+├── src/
 ├── models/
-│   ├── random_forest_model.pkl                      # Trained Random Forest classifier (tracked via Git LFS)
-│   ├── random_forest_tfidf_vectorizer.pkl           # TF-IDF Vectorizer for Random Forest
-│   ├── gru_model.keras                             # Trained GRU model file (tracked via Git LFS)
-│   └── gru_tokenizer.pkl                           # Tokenizer for GRU preprocessing
-│
-├── results/
-│   ├── random_forest_results.csv                   # Classification metrics for Random Forest
-│   └── gru_results.csv                             # Classification metrics for GRU
-│
-├── Random_Forest.ipynb                             # Jupyter notebook for Random Forest training & evaluation
-├── GRU.ipynb                                       # Jupyter notebook for GRU training & evaluation
-├── .gitignore                                      # Git ignore rules for the workspace
-└── .gitattributes                                  # Git LFS configurations for large data and model files
+├── reports/
+├── screenshots/
+├── videos/
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
----
+## Technologies Used
 
-## 📊 Dataset Overview
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- TensorFlow
+- Keras
+- PyTorch
+- Hugging Face Transformers
+- Jupyter Notebook
+- Git
+- GitHub
+- Streamlit
 
-* **Dataset Name:** `clean_news_dataset.csv`
-* **Total Samples:** 39,105 news articles
-* **Target Classes:** 
-  * `0` - Fake News
-  * `1` - True News
-* **Features Used:** 
-  * `clean_text` (cleaned textual content of the articles)
-  * `label` (binary classification label)
+## Setup
 
----
+Clone the repository:
 
-## 🤖 Models Implementation
+```bash
+git clone https://github.com/AyeshUmayanga/NLP_Group_25.git
+```
 
-### 1. Random Forest Classifier (`Random_Forest.ipynb`)
-The Random Forest model leverages traditional NLP techniques coupled with ensemble learning.
-* **Text Representation:** TF-IDF (Term Frequency-Inverse Document Frequency) Vectorizer
-  * `max_features = 5000`
-  * `ngram_range = (1, 2)` (Unigrams & Bigrams)
-* **Model Parameters:** `n_estimators = 100`, `n_jobs = -1` for parallel processing.
-* **Train/Test Split:** 80% Train, 20% Test (Stratified Split)
+Navigate to the project directory:
 
-### 2. Gated Recurrent Unit (GRU) Network (`GRU.ipynb`)
-The GRU model is a sequence-based recurrent neural network (RNN) capable of capturing long-term dependencies in text.
-* **Text Representation:** Word Tokenization & Sequence Padding
-  * `max_words = 20000` (Vocabulary size)
-  * `max_len = 500` (Sequence length)
-* **Architecture:**
-  * **Embedding Layer:** Input Dimension = 20,000, Output Dimension = 128
-  * **GRU Layer:** 64 recurrent units
-  * **Dropout Layer:** rate = 0.5 (for regularization)
-  * **Dense Output Layer:** 1 unit with Sigmoid activation function
-* **Training Hyperparameters:**
-  * **Optimizer:** Adam
-  * **Loss Function:** Binary Cross-Entropy
-  * **Callbacks:** Early Stopping (patience = 2, restoring best weights)
+```bash
+cd NLP_Group_25
+```
 
----
+Install the required dependencies:
 
-## 📈 Performance & Results
+```bash
+pip install -r requirements.txt
+```
 
-Below is the comparison of the two models based on the test split:
+## How to Run
 
-| Model Name | Accuracy | Precision | Recall | F1-Score | ROC AUC |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Random Forest** | 99.65% | 99.55% | 99.81% | 99.68% | 99.95% |
-| **GRU (Deep Learning)** | **99.72%** | **99.60%** | **99.88%** | **99.74%** | **99.96%** |
+1. Clone the repository.
+2. Install the required dependencies.
+3. Navigate to the `notebooks/` directory.
+4. Open the required Jupyter Notebook.
+5. Run the preprocessing and model development steps.
+6. Evaluate the trained model.
+7. Run the final application from the `src/` directory.
 
-Both models show exceptional accuracy, with the GRU model slightly outperforming the Random Forest model across all classification metrics.
+## Project Workflow
 
----
+```
+Dataset
+   ↓
+Data Cleaning
+   ↓
+Preprocessing
+   ↓
+Exploratory Data Analysis
+   ↓
+Feature Engineering
+   ↓
+Model Training
+   ↓
+Model Evaluation
+   ↓
+Model Comparison
+   ↓
+Best Model Selection
+   ↓
+Final Application
+```
 
-## 🚀 How to Run the Project
+## Academic Information
 
-### Prerequisites
-Make sure you have the following installed:
-* Python 3.8+
-* Jupyter Notebook / Google Colab
-* Git & Git LFS (Large File Storage)
-
-### Installation
-1. Clone the repository and navigate to the project directory:
-   ```bash
-   git clone https://github.com/AyeshUmayanga/NLP_Group_25.git
-   cd NLP_Group_25
-   git checkout feature/cit-24-01-0534-Random-forest
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the Jupyter Notebooks:
-   * To train or evaluate Random Forest, open `Random_Forest.ipynb`.
-   * To train or evaluate GRU, open `GRU.ipynb`.
+- **Module:** CCS3356 – Natural Language Processing
+- **Institution:** Sri Lanka Technology Campus
+- **Project:** Group Assignment – Fake News Detection
+- **Group:** NLP Group 25
